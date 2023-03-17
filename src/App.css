@@ -1,38 +1,103 @@
-.App {
-  text-align: center;
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: lightgray;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.grid {
+  display: grid;
+  /* gap: 1px; */
+  margin: 0 auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+
+.cell {
+  background-color: white;
+  position: relative;
+}
+
+.wall {
+  background-color: black;
+}
+
+.blue {
+  background-color: blue;
+  position: absolute;
+  border-radius: 10px;
+}
+
+.green {
+  background-color: green;
+  position: absolute;
+  border-radius: 10px;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+    box-shadow: 0 0 10px red;
+  }
+  50% {
+    opacity: 0.5;
+    box-shadow: 0 0 20px red, 0 0 30px red;
+  }
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 10px red;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.target {
+  background-color: red;
+  position: absolute;
+  animation: pulse 1s infinite;
+  z-index: 100;
+}
+
+.info-container {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 10;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.info-circle {
+  background-color: rgba(200, 200, 200, 0.9);
+  width: 50px;
+  height: 50px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 10px lightblue;
 }
 
-.App-link {
-  color: #61dafb;
+.question-mark {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.info-content {
+  display: none;
+}
+
+.info-container.expanded .info-content {
+  display: block;
+}
+
+.info-container.expanded .question-mark {
+  display: none;
+}
+
+.info-container.expanded .info-circle {
+  width: 250px;
+  height: 100px;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: white;
 }
