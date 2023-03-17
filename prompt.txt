@@ -1,0 +1,16 @@
+I’d like you to generate the code for a pathfinding demo based in React.  The demo should be a top down view composed of cells.  I have already used create-react-app to make the project and now I only need the code.
+
+**IMPORTANT**:  Keep all modifications to App.js and App.css
+
+**IMPORTANT**: Please provide the complete implementation so I that I can copy and paste and the code will immediately work as intended. Do not leave any parts of the code to be implemented later. 
+
+**IMPORTANT**: Use the pathfinding package from npm
+
+There are two ‘characters’ on the screen: a blue square and a green square. They both try to navigate to a randomly selected location (red square). When either green or blue arrives at the red square, the blue or green win count is incremented.  Then the score is logged to the console. Then, the map is regenerated, and the blue square chooses a new random location.  The game begins again, indefinitely.
+
+Both the blue and green square move at the same speed, and their speed is easily adjustable as a constant in the code.
+
+*Map*
+The map takes up the entire browser window. The number of cells is determined by the width and height of the browser window. The number of cells always fits the browser window tightly.
+
+There are impassible walls (black squares) on the map.  These are generated anew every time the page reloaded.
