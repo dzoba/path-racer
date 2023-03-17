@@ -146,10 +146,10 @@ const App = () => {
               <div>Blue: {blueWins} Green: {greenWins}</div>
               <div>Author: Chris Dzoba & GPT-4</div>
               <div>
-                <a href="https://twitter.com/ChrisDzoba" target="_blank" rel="noopener noreferrer">
+                <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
                   Twitter
                 </a>{" "}
-                <a href="https://github.com/dzoba/path-racer" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
                   Github
                 </a>
               </div>

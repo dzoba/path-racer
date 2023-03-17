@@ -7,10 +7,8 @@ body {
 
 .grid {
   display: grid;
-  /* gap: 1px; */
   margin: 0 auto;
 }
-
 
 .cell {
   background-color: white;
@@ -100,4 +98,10 @@ body {
   padding: 5px;
   border-radius: 10px;
   background-color: white;
+}
+
+.grid-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
