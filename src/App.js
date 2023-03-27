@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Pathfinding from "pathfinding";
 import "./App.css";
+import { getDatabase, ref, onValue, runTransaction } from "firebase/database";
+import useAnonymousAuth from './useAnonymousAuth';
+
 
 const CELL_SIZE = 20;
 const MOVE_SPEED = 90;
@@ -13,6 +16,30 @@ const App = () => {
   const [blueWins, setBlueWins] = useState(0);
   const [greenWins, setGreenWins] = useState(0);
   const [infoVisible, setInfoVisible] = useState(false);
+  const [database, setDatabase] = useState(null);
+
+  useAnonymousAuth();
+
+
+    // Add a new effect to initialize the database
+    useEffect(() => {
+      setDatabase(getDatabase());
+    }, []);
+
+    useEffect(() => {
+      if (database) {
+        const blueWinsRef = ref(database, "blueWins");
+        const greenWinsRef = ref(database, "greenWins");
+  
+        onValue(blueWinsRef, (snapshot) => {
+          setBlueWins(snapshot.val() || 0);
+        });
+  
+        onValue(greenWinsRef, (snapshot) => {
+          setGreenWins(snapshot.val() || 0);
+        });
+      }
+    }, [database]);
 
   const randomPosition = (maxX, maxY) => ({
     x: Math.floor(Math.random() * maxX),
@@ -71,6 +98,8 @@ const App = () => {
   }, []);
 
   useEffect(() => {
+    if (!database) return;
+
     const intervalId = setInterval(() => {
       const bluePath = findPath(bluePos, targetPos, grid);
       const greenPath = findPath(greenPos, targetPos, grid);
@@ -84,11 +113,11 @@ const App = () => {
 
         if (bluePos.x === targetPos.x && bluePos.y === targetPos.y) {
           clearInterval(intervalId);
-          setBlueWins(blueWins + 1);
+          runTransaction(ref(database, "blueWins"), (currentValue) => (currentValue || 0) + 1);
           initGame();
         } else if (greenPos.x === targetPos.x && greenPos.y === targetPos.y) {
           clearInterval(intervalId);
-          setGreenWins(greenWins + 1);
+          runTransaction(ref(database, "greenWins"), (currentValue) => (currentValue || 0) + 1);
           initGame();
         }
       }
