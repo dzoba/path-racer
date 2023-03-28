@@ -108,8 +108,16 @@ const App = () => {
         clearInterval(intervalId);
         initGame();
       } else {
-        setBluePos(move(bluePos, bluePath[1]));
-        setGreenPos(move(greenPos, greenPath[1]));
+        // determine order of moves randomly
+        const blueMovesFirst = Math.floor(Math.random() * 2) === 0;
+
+        if (blueMovesFirst) {
+            setBluePos(move(bluePos, bluePath[1]));
+            setGreenPos(move(greenPos, greenPath[1]));
+        } else {
+            setGreenPos(move(greenPos, greenPath[1]));
+            setBluePos(move(bluePos, bluePath[1]));
+        }
 
         if (bluePos.x === targetPos.x && bluePos.y === targetPos.y) {
           clearInterval(intervalId);
