@@ -182,6 +182,7 @@ const App = () => {
             <div className="info-content">
               <div>Blue: {blueWins} Green: {greenWins}</div>
               <div>Author: Chris Dzoba & GPT-4</div>
+              <p>This app was written entirely by prompting GPT-4. The prompt is available on Github.</p>
               <div>
                 <a href="https://twitter.com/ChrisDzoba" target="_blank" rel="noopener noreferrer">
                   Twitter
