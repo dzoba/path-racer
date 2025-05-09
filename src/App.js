@@ -95,6 +95,7 @@ const App = () => {
 
   useEffect(() => {
     initGame();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -132,6 +133,7 @@ const App = () => {
     }, MOVE_SPEED);
 
     return () => clearInterval(intervalId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [bluePos, greenPos, targetPos, grid]);
 
   return (
