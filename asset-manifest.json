@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/path-racer/static/css/main.b5c9e808.css",
+    "main.js": "/path-racer/static/js/main.e8188195.js",
+    "static/js/787.0362d63d.chunk.js": "/path-racer/static/js/787.0362d63d.chunk.js",
+    "index.html": "/path-racer/index.html",
+    "main.b5c9e808.css.map": "/path-racer/static/css/main.b5c9e808.css.map",
+    "main.e8188195.js.map": "/path-racer/static/js/main.e8188195.js.map",
+    "787.0362d63d.chunk.js.map": "/path-racer/static/js/787.0362d63d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b5c9e808.css",
+    "static/js/main.e8188195.js"
+  ]
+}
